@@ -2,12 +2,12 @@ from keras import backend as K
 
 ce_w = 0.5
 ce_d_w = 0.5
-'''
-ce_w values smaller than 0.5 penalize false positives more while values larger than 0.5 penalize false negatives more
-'''
 e = K.epsilon()
 smooth = 1
-
+'''
+ce_w values smaller than 0.5 penalize false positives more while values larger than 0.5 penalize false negatives more
+ce_d_w is level of contribution of the cross-entropy loss in the total loss.
+'''
 
 def Combo_loss(y_true, y_pred):
     y_true_f = K.flatten(y_true)
