@@ -1,4 +1,4 @@
-# ComboLoss
+# Combo loss
 This is the code corresponding to our CMIG 2019 paper, ["Combo loss: Handling input and output imbalance in multi-organ segmentation"](https://www.sciencedirect.com/science/article/abs/pii/S0895611118305688?via%3Dihub).
 
 If you use our code, please cite our paper: 
