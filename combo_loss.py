@@ -3,7 +3,7 @@ from keras import backend as K
 ce_w = 0.5
 ce_d_w = 0.5
 '''
-Values smaller than 0.5 penalize false positives more while values larger than 0.5 penalize false negatives more
+ce_w values smaller than 0.5 penalize false positives more while values larger than 0.5 penalize false negatives more
 '''
 e = K.epsilon()
 smooth = 1
