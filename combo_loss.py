@@ -15,9 +15,9 @@ def Combo_loss(y_true, y_pred):
     intersection = K.sum(y_true_f * y_pred_f)
     d = (2. * intersection + smooth) / (K.sum(y_true_f) + K.sum(y_pred_f) + smooth)
     y_pred_f = K.clip(y_pred_f, e, 1.0 - e)
-    out = - (ce_w * ((y_true_f * K.log(y_pred_f)) + ((1 - ce_w) * (1.0 - y_true_f) * K.log(1.0 - y_pred_f))))
+    out = - (ce_w * y_true_f * K.log(y_pred_f)) + ((1 - ce_w) * (1.0 - y_true_f) * K.log(1.0 - y_pred_f))
     weighted_ce = K.mean(out, axis=-1)
-    combo = (ce_d_w * weighted_ce) - ((1 - ce_d_w) * d)
+    combo = (ce_d_w * weighted_ce) - ((1 - ce_d_w) * (1 - d))
     return combo
 
 
