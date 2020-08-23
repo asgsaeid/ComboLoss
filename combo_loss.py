@@ -17,7 +17,7 @@ def Combo_loss(y_true, y_pred):
     y_pred_f = K.clip(y_pred_f, e, 1.0 - e)
     out = - (ce_w * y_true_f * K.log(y_pred_f)) + ((1 - ce_w) * (1.0 - y_true_f) * K.log(1.0 - y_pred_f))
     weighted_ce = K.mean(out, axis=-1)
-    combo = (ce_d_w * weighted_ce) + ((1 - ce_d_w) * (1 - d))
+    combo = (ce_d_w * weighted_ce) - ((1 - ce_d_w) * d)
     return combo
 
 
